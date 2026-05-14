@@ -10,8 +10,8 @@
 
 | 분류                 | 상세 내용                                                                |
 | ------------------ | -------------------------------------------------------------------- |
-| Communication      | WebSocket, MQTT, UART(TTY), RS232/RS485 통신, GPIO 제어                  |
-| Hardware           | Raspberry Pi 4 기반 스마트도어 시스템, Solenoid Door Lock, PIR/Gas/Flame 센서 연동 |
+| Communication      | WebSocket, MQTT (Eclipse Mosquitto v2.0.20), UART(TTY), RS232/RS485 통신, GPIO 제어                  |
+| Hardware           | Raspberry Pi 3,4 기반 스마트도어, 보관함 시스템, Solenoid Door Lock, PIR/Gas/Flame 센서 연동 |
 | Device Integration | USB 4K 카메라 및 오디오 디바이스 제어, RS232 장비 연동, PG 결제 단말기 연동                  |
 | Backend            | Python Tornado 기반 실시간 서버 및 WebSocket 통신 개발                           |
 | Frontend / GUI     | PySide6(Qt), Kivy 기반 보관함 UI 유지보수 및 기능 개선                             |
