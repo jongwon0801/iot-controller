@@ -21,7 +21,7 @@
 
 #### 폴더 구조
 ```less
-- exgternal-api/ openai api 활용한 음성인식 기능 구현
+- external-api/ openai api 활용한 음성인식 기능 구현
 - hardware/ — UART, RS485, GPIO 제어 예제
 - mqtt-bridge/ — Tornado + MQTT 이벤트 핸들러 구조
 - multithreading/ — 멀티스레딩 + 뮤텍스 예제 (사운드키 인증)
