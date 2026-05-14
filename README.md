@@ -21,6 +21,7 @@
 
 #### 폴더 구조
 ```less
+- exgternal-api/ openai api 활용한 음성인식 기능 구현
 - hardware/ — UART, RS485, GPIO 제어 예제
 - mqtt-bridge/ — Tornado + MQTT 이벤트 핸들러 구조
 - multithreading/ — 멀티스레딩 + 뮤텍스 예제 (사운드키 인증)
@@ -43,7 +44,18 @@ CPU 점유율 과부하(130%) 해결:
 오디오 장치 식별 이슈: 동일 칩셋 사용 시 발생하는 장치 인식 오류를 리눅스 udev 규칙 설정을 통해 고유 식별값 부여
 ```
 
-#### 3. 모바일 앱 운영 안정화
+#### 3. 음성인식 최신 AI API 활용
+```less
+장치 자동 탐색 로직: 하드웨어 환경이 변해도 sounddevice를 통해 특정 마이크를 자동으로 찾아 바인딩하도록 설계.
+
+LLM Intent Classification: 단순한 키워드 매칭이 아닌 GPT-4o-mini를 활용해
+"문 좀 열어줘", "열어라" 등 다양한 자연어 표현을 door_open이라는 정형 데이터(JSON)로 추상화함.
+
+JSON Mode 사용: GPT 응답을 response_format={"type": "json_object"}로 설정하여 시스템 통합의 안정성을 높임.
+```
+
+
+#### 4. 모바일 앱 운영 안정화
 ```less
 Flutter 빌드 크래시 해결: 외부 라이브러리(mobile_scanner 등)와 MLKit 간의 의존성 충돌을 분석하여
 엔진 버전 다운그레이드 및 라이브러리 고정으로 스토어 재배포 성공
