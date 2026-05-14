@@ -46,7 +46,7 @@ def close():
 # ── 패킷 생성 / 송수신 ───────────────────────────────────
 
 def make_crc(data: tuple) -> int:
-    """Modbus RTU CRC16 계산"""
+    """CRC16 체크섬 계산 (Modbus CRC16 알고리즘)"""
     s = ''.join(chr(b) for b in data)
     return calcString(s, INITIAL_MODBUS)
 
