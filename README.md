@@ -22,7 +22,7 @@
 #### 폴더 구조
 ```less
 - hardware/ — UART, RS485, GPIO 제어 예제
-- backend_tornado/ — Tornado + MQTT 이벤트 핸들러 구조
+- mqtt-bridge/ — Tornado + MQTT 이벤트 핸들러 구조
 - multithreading/ — 멀티스레딩 + 뮤텍스 예제 (사운드키 인증)
 - flutter_maintenance/ — Flutter 버전 충돌 해결 기록
 ```
