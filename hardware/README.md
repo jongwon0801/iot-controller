@@ -10,6 +10,17 @@
 7. LockerService  rs485.close() → lock.release()
 ```
 
+```less
+[jumper, function, command, gate_high, gate_low]
+[1,      1,        1,       0,         0        ]
+
+jumper — 컨트롤러 보드 주소 (어느 보드한테 보내는지)
+function — 항상 1 고정 (프로토콜 고정값)
+command — 1이면 상태조회, 2이면 제어(전기신호)
+gate_high — 1~8번 락커 비트맵 (serial=3이면 0b00000100)
+gate_low — 9~16번 락커 비트맵
+```
+
 #### 1. ctrl.py
 ```less
 python ctrl.py open 1 3
