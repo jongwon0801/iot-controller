@@ -16,7 +16,7 @@ MQTT 브로커 클라이언트 - 스마트도어 시스템
     broker = MqttBroker(
         host='127.0.0.1',
         port=1883,
-        topic='hizib01/#',
+        topic='Exam01/#',
         onmessage=my_handler,
     )
     broker.run()
