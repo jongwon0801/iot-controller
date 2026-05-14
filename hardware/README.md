@@ -1,5 +1,15 @@
 #### 열기 명령 전체 흐름
 
+```less
+1. ctrl.py      python ctrl.py open 1 3 입력
+2. LockerService  lock.acquire() → rs485.init('/dev/hunes') 포트 열기
+3. rs485.py     패킷 생성 [1, 1, 1, 0, 0] → CRC16 계산 → 7바이트 전송
+4. 컨트롤러 보드  응답 7바이트 반환
+5. rs485.py     응답 수신 → CRC 검증 → 락커 상태 비트 확인
+6. rs485.py     열기 신호 전송 → 폴링 → 초기화
+7. LockerService  rs485.close() → lock.release()
+```
+
 #### 1. ctrl.py
 ```less
 python ctrl.py open 1 3
