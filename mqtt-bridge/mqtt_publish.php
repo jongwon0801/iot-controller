@@ -7,11 +7,11 @@
  *   모바일 앱 → HTTP POST → PHP API → mosquitto_pub CLI → Mosquitto 브로커
  *
  * 토픽 설계:
- *   hizib01/{code}/door              도어 제어 명령 (열기/닫기)
- *   hizib01/{code}/user/{user_id}    특정 사용자 대상 메시지
- *   hizib01/{code}/notice            공지사항 CRUD
- *   hizib01/{code}/schedule          일정 CRUD
- *   hizib01/{code}/message           메시지 CRUD
+ *   Exam01/{code}/door               도어 제어 명령 (열기/닫기)
+ *   Exam01/{code}/user/{user_id}     특정 사용자 대상 메시지
+ *   Exam01/{code}/notice             공지사항 CRUD
+ *   Exam01/{code}/schedule           일정 CRUD
+ *   Exam01/{code}/message            메시지 CRUD
  *
  * 메시지 구조:
  *   { "request": "/Smartdoor/doorOpenAtAppProcess", "data": { ... } }
@@ -37,42 +37,42 @@ $_lib['mqtt'] = [
 
 /**
  * 도어 제어 토픽 반환
- * hizib01/{code}/door
+ * Exam01/{code}/door
  */
 function getDoorTopic(string $code): string {
-    return "hizib01/{$code}/door";
+    return "Exam01/{$code}/door";
 }
 
 /**
  * 특정 사용자 토픽 반환
- * hizib01/{code}/user/{user_id}
+ * Exam01/{code}/user/{user_id}
  */
 function getUserTopic(string $code, int $user_id): string {
-    return "hizib01/{$code}/user/{$user_id}";
+    return "Exam01/{$code}/user/{$user_id}";
 }
 
 /**
  * 공지사항 토픽 반환
- * hizib01/{code}/notice
+ * Exam01/{code}/notice
  */
 function getNoticeTopic(string $code): string {
-    return "hizib01/{$code}/notice";
+    return "Exam01/{$code}/notice";
 }
 
 /**
  * 일정 토픽 반환
- * hizib01/{code}/schedule
+ * Exam01/{code}/schedule
  */
 function getScheduleTopic(string $code): string {
-    return "hizib01/{$code}/schedule";
+    return "Exam01/{$code}/schedule";
 }
 
 /**
  * 메시지 토픽 반환
- * hizib01/{code}/message
+ * Exam01/{code}/message
  */
 function getMessageTopic(string $code): string {
-    return "hizib01/{$code}/message";
+    return "Exam01/{$code}/message";
 }
 
 
@@ -93,11 +93,11 @@ function mqtt_publish(string $topic, string $msg, int $qos = 2): void {
 
     $cmd = sprintf(
         "mosquitto_pub -h %s -p %d -u %s -P %s -t %s -m '%s' -q %d",
-        escapeshellarg($_lib['mqtt']['host']),
+        escaphellarg($_lib['mqtt']['host']),
         (int)$_lib['mqtt']['port'],
-        escapeshellarg($_lib['mqtt']['user']),
-        escapeshellarg($_lib['mqtt']['passwd']),
-        escapeshellarg($topic),
+        escaphellarg($_lib['mqtt']['user']),
+        escaphellarg($_lib['mqtt']['passwd']),
+        escaphellarg($topic),
         $msg,
         $qos
     );
